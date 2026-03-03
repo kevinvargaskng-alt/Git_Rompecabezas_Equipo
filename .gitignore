@@ -1,0 +1,24 @@
+# ============================================================
+# 🛡️ ARCHIVO .gitignore - CONFIGURADO POR EL TECH LEAD
+# Protege archivos sensibles para que NO suban a GitHub
+# ============================================================
+
+# Ignorar archivos de texto con claves
+*.txt
+
+# Ignorar carpeta de contraseñas
+pass/
+
+# Ignorar archivos de sistema macOS
+.DS_Store
+
+# Ignorar archivos de sistema Windows
+Thumbs.db
+desktop.ini
+
+# Ignorar carpetas de editores de código
+.vscode/
+.idea/
+
+# Ignorar logs
+*.log

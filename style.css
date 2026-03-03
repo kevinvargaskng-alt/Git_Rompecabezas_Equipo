@@ -1,0 +1,194 @@
+/* ============================================================
+   💅 ARCHIVO CSS - ESTILOS GLOBALES
+   Responsable: STYLES MANAGER
+   Rama: feature/estilos
+   ============================================================ */
+
+/* --- VARIABLES GLOBALES (No borrar, todo el equipo depende de estas) --- */
+:root {
+  --primary-color: #4F46E5;
+  --secondary-color: #10B981;
+  --dark-bg: #1F2937;
+  --light-bg: #F9FAFB;
+  --text-dark: #111827;
+  --text-light: #FFFFFF;
+  --font-main: 'Poppins', sans-serif;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* --- RESET GENERAL --- */
+body {
+  font-family: var(--font-main);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--text-dark);
+  background-color: var(--light-bg);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ============================================================
+   EL STYLES MANAGER DEBE CONTINUAR DESDE AQUÍ
+   Agrega los estilos para cada sección en este orden:
+   1. Header & Navbar
+   2. Hero Section
+   3. Sección de Servicios & Cards
+   4. Sección de Contacto
+   5. Footer
+   6. Responsive (Media Queries al final)
+   ============================================================ */
+
+
+/* --- 1. HEADER & NAVBAR --- */
+/* Coordina con el Frontend Architect los nombres de clases */
+
+#header {
+  /* Ejemplo: background-color: var(--dark-bg); */
+}
+
+#navbar {
+  /* Ejemplo: display: flex; justify-content: space-between; */
+}
+
+.logo {
+  /* Estilos del logo */
+}
+
+.nav-links {
+  /* Estilos de la lista de navegación */
+}
+
+.nav-links li {
+  /* Estilos de cada item */
+}
+
+.nav-links a:hover {
+  /* Efecto hover en los links */
+}
+
+
+/* --- 2. HERO SECTION --- */
+/* Coordina con el Content Specialist los nombres de clases */
+
+#hero {
+  /* Ejemplo: min-height: 100vh; display: flex; align-items: center; */
+}
+
+.hero-content {
+  /* Contenedor del texto hero */
+}
+
+.hero-content h1 {
+  /* Título principal */
+}
+
+.hero-content p {
+  /* Subtítulo */
+}
+
+.btn-cta {
+  /* Botón de llamada a la acción */
+}
+
+.btn-cta:hover {
+  /* Efecto hover del botón */
+}
+
+
+/* --- 3. SECCIÓN DE SERVICIOS & CARDS --- */
+/* Coordina con el UI Component Dev los nombres de clases */
+
+#servicios {
+  /* Ejemplo: padding: 80px 20px; */
+}
+
+#servicios h2 {
+  /* Título de la sección */
+}
+
+.cards-grid {
+  /* Ejemplo: display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; */
+}
+
+.card {
+  /* Estilos de cada tarjeta */
+}
+
+.card:hover {
+  /* Efecto hover en las tarjetas */
+}
+
+.card-icon {
+  /* Estilos del ícono */
+}
+
+.card h3 {
+  /* Título de la tarjeta */
+}
+
+.card p {
+  /* Descripción de la tarjeta */
+}
+
+
+/* --- 4. SECCIÓN DE CONTACTO --- */
+/* Coordina con el Tech Lead los nombres de clases */
+
+#contacto {
+  /* Sección de contacto */
+}
+
+.contact-form {
+  /* Formulario de contacto */
+}
+
+.contact-form input,
+.contact-form textarea {
+  /* Campos del formulario */
+}
+
+.contact-form button {
+  /* Botón de enviar */
+}
+
+
+/* --- 5. FOOTER --- */
+/* Coordina con el Tech Lead los nombres de clases */
+
+#footer {
+  /* Ejemplo: background-color: var(--dark-bg); color: var(--text-light); */
+}
+
+.social-links a {
+  /* Links de redes sociales */
+}
+
+
+/* --- 6. RESPONSIVE - MEDIA QUERIES --- */
+/* Siempre al final del archivo */
+
+@media (max-width: 768px) {
+  /* Tablets y móviles */
+
+  .cards-grid {
+    /* Ejemplo: grid-template-columns: 1fr; */
+  }
+
+  .nav-links {
+    /* Ejemplo: flex-direction: column; */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Solo móviles */
+}
