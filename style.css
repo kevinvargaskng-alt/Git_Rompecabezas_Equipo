@@ -7,16 +7,23 @@
 /* --- VARIABLES GLOBALES (No borrar, todo el equipo depende de estas) --- */
 :root {
   --primary-color: #4F46E5;
+  --primary-dark: #4338ca;
   --secondary-color: #10B981;
   --dark-bg: #1F2937;
   --light-bg: #F9FAFB;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-600: #4b5563;
   --text-dark: #111827;
   --text-light: #FFFFFF;
   --font-main: 'Poppins', sans-serif;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --radius: 12px;
   --transition: all 0.3s ease;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /* --- RESET GENERAL --- */
 body {
@@ -26,6 +33,7 @@ body {
   box-sizing: border-box;
   color: var(--text-dark);
   background-color: var(--light-bg);
+  line-height: 1.6;
 }
 
 *, *::before, *::after {
@@ -37,158 +45,313 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 /* ============================================================
    EL STYLES MANAGER DEBE CONTINUAR DESDE AQUÍ
-   Agrega los estilos para cada sección en este orden:
-   1. Header & Navbar
-   2. Hero Section
-   3. Sección de Servicios & Cards
-   4. Sección de Contacto
-   5. Footer
-   6. Responsive (Media Queries al final)
    ============================================================ */
 
-
 /* --- 1. HEADER & NAVBAR --- */
-/* Coordina con el Frontend Architect los nombres de clases */
-
 #header {
-  /* Ejemplo: background-color: var(--dark-bg); */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: var(--transition);
 }
 
 #navbar {
-  /* Ejemplo: display: flex; justify-content: space-between; */
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-  /* Estilos del logo */
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
 }
 
 .nav-links {
-  /* Estilos de la lista de navegación */
+  display: flex;
+  gap: 2.5rem;
 }
 
-.nav-links li {
-  /* Estilos de cada item */
+.nav-links li a {
+  font-weight: 500;
+  color: var(--text-dark);
+  transition: var(--transition);
+  position: relative;
 }
 
-.nav-links a:hover {
-  /* Efecto hover en los links */
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -6px;
+  left: 0;
+  background-color: var(--primary-color);
+  transition: width 0.3s ease;
 }
 
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--primary-color);
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
 
 /* --- 2. HERO SECTION --- */
-/* Coordina con el Content Specialist los nombres de clases */
-
 #hero {
-  /* Ejemplo: min-height: 100vh; display: flex; align-items: center; */
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+  display: flex;
+  align-items: center;
+  padding-top: 80px; /* espacio para el navbar fijo */
 }
 
 .hero-content {
-  /* Contenedor del texto hero */
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  text-align: center;
 }
 
 .hero-content h1 {
-  /* Título principal */
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+  line-height: 1.1;
 }
 
 .hero-content p {
-  /* Subtítulo */
+  font-size: 1.3rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  color: var(--gray-600);
 }
 
 .btn-cta {
-  /* Botón de llamada a la acción */
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  padding: 1rem 2.2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
+  transition: var(--transition);
 }
 
 .btn-cta:hover {
-  /* Efecto hover del botón */
+  background-color: var(--primary-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px rgba(79, 70, 229, 0.3);
 }
 
-
 /* --- 3. SECCIÓN DE SERVICIOS & CARDS --- */
-/* Coordina con el UI Component Dev los nombres de clases */
-
 #servicios {
-  /* Ejemplo: padding: 80px 20px; */
+  padding: 100px 2rem;
+  background-color: white;
 }
 
 #servicios h2 {
-  /* Título de la sección */
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  color: var(--text-dark);
 }
 
 .cards-grid {
-  /* Ejemplo: display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; */
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
 }
 
 .card {
-  /* Estilos de cada tarjeta */
+  background: white;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
 }
 
 .card:hover {
-  /* Efecto hover en las tarjetas */
+  transform: translateY(-12px);
+  box-shadow: var(--shadow-lg);
 }
 
 .card-icon {
-  /* Estilos del ícono */
+  font-size: 3.5rem;
+  color: var(--secondary-color);
+  margin: 2rem auto 1.5rem;
+  text-align: center;
+  display: block;
 }
 
 .card h3 {
-  /* Título de la tarjeta */
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
 }
 
 .card p {
-  /* Descripción de la tarjeta */
+  padding: 0 2rem 2.5rem;
+  color: var(--gray-600);
+  text-align: center;
 }
 
-
 /* --- 4. SECCIÓN DE CONTACTO --- */
-/* Coordina con el Tech Lead los nombres de clases */
-
 #contacto {
-  /* Sección de contacto */
+  padding: 100px 2rem;
+  background-color: var(--gray-100);
+}
+
+#contacto h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 3rem;
 }
 
 .contact-form {
-  /* Formulario de contacto */
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .contact-form input,
 .contact-form textarea {
-  /* Campos del formulario */
+  width: 100%;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius);
+  font-family: var(--font-main);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
 }
 
 .contact-form button {
-  /* Botón de enviar */
+  width: 100%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
 }
 
+.contact-form button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
 
 /* --- 5. FOOTER --- */
-/* Coordina con el Tech Lead los nombres de clases */
-
 #footer {
-  /* Ejemplo: background-color: var(--dark-bg); color: var(--text-light); */
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  padding: 5rem 2rem 3rem;
+  text-align: center;
+}
+
+#footer .logo {
+  color: white;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.8rem;
+  margin: 2rem 0;
 }
 
 .social-links a {
-  /* Links de redes sociales */
+  font-size: 1.6rem;
+  color: var(--gray-200);
+  transition: var(--transition);
 }
 
+.social-links a:hover {
+  color: var(--secondary-color);
+  transform: translateY(-4px);
+}
 
 /* --- 6. RESPONSIVE - MEDIA QUERIES --- */
-/* Siempre al final del archivo */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 3.2rem;
+  }
+}
 
 @media (max-width: 768px) {
-  /* Tablets y móviles */
-
-  .cards-grid {
-    /* Ejemplo: grid-template-columns: 1fr; */
+  #navbar {
+    padding: 1.2rem 1.5rem;
   }
 
   .nav-links {
-    /* Ejemplo: flex-direction: column; */
+    display: none;           /* aquí normalmente se oculta y se muestra con JS */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-content h1 {
+    font-size: 2.8rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* Solo móviles */
+  .hero-content h1 {
+    font-size: 2.4rem;
+  }
+
+  #servicios h2,
+  #contacto h2 {
+    font-size: 2.4rem;
+  }
+
+  .btn-cta {
+    padding: 0.9rem 1.8rem;
+  }
 }
